@@ -1,17 +1,28 @@
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Login from 'pages/Login';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2A9F85'
+    },
+    secondary: {
+      main: '#FF7070'
+    },
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Login />
+      </ThemeProvider>
+    </StylesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
