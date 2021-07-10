@@ -1,19 +1,25 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from 'pages/Login';
 import Produtores from 'pages/Produtores';
-import { useState } from 'react';
+import UsuarioProvider from 'common/contexts/Usuario';
+import CarrinhoProvider from 'common/contexts/Carrinho';
+import NavBar from 'pages/Produtores/NavBar';
 
 export default function Routes() {
-  const [nome, setNome] = useState('');
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Login nome={nome} setNome={setNome} />
-        </Route>
-        <Route path="/produtores">
-            <Produtores nome={nome} />
-        </Route>
+        <UsuarioProvider>
+          <Route exact path="/">
+              <Login />
+          </Route>
+          <Route path="/produtores">
+            <CarrinhoProvider>
+              <NavBar />
+              <Produtores />
+            </CarrinhoProvider>
+          </Route>
+        </UsuarioProvider>
       </Switch>
     </Router>
   )

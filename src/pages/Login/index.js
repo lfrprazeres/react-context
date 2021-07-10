@@ -1,9 +1,13 @@
 import { Button } from '@material-ui/core';
 import { Container, Titulo, InputNome } from './styles';
 import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { UsuarioContext } from 'common/contexts/Usuario';
 
-function Login({ nome, setNome }) {
+function Login() {
   const history = useHistory();
+  const { nome, setNome } = useContext(UsuarioContext);
+
   return (
     <Container>
       <Titulo>
@@ -17,7 +21,7 @@ function Login({ nome, setNome }) {
       <Button
         variant="contained"
         color="primary"
-        disabled={nome.length < 4}
+        disabled={'nome'.length < 4}
         onClick={() => history.push('/produtores')}
       >
         Avançar
