@@ -1,0 +1,31 @@
+import styled from 'styled-components';
+const titleGray = '#464646';
+
+export const Container = styled.main`
+  min-height: 100vh;
+  padding: 20px;
+
+  @media(min-width: 768px) {
+    margin: 0 auto;
+    width: 50%;
+  }
+`;
+
+export const Header = styled.header`
+  > h2 {
+    color: ${titleGray}
+  }
+  > p {
+    color: #A3A3A3
+  }
+`;
+
+export const Lista = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+  > h2 {
+    color: ${titleGray}
+  }
+`;

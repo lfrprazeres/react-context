@@ -1,10 +1,28 @@
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Routes from './router';
+import './index.css';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2A9F85'
+    },
+    secondary: {
+      main: '#ff0000'
+    }
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Routes />
+      </ThemeProvider>
+    </StylesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
