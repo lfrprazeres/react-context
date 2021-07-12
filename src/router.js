@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from 'pages/Login';
-import Produtores from 'pages/Produtores';
+import Feira from 'pages/Feira';
 import UsuarioProvider from 'common/contexts/Usuario';
 import CarrinhoProvider from 'common/contexts/Carrinho';
-import NavBar from 'pages/Produtores/NavBar';
+import NavBar from 'pages/Feira/NavBar';
 
 export default function Routes() {
   return (
@@ -11,14 +11,14 @@ export default function Routes() {
       <Switch>
         <UsuarioProvider>
           <Route exact path="/">
-              <Login />
+            <Login />
           </Route>
-          <Route path="/produtores">
             <CarrinhoProvider>
-              <NavBar />
-              <Produtores />
+              <Route path="/feira">
+                  <NavBar />
+                  <Feira />
+              </Route>
             </CarrinhoProvider>
-          </Route>
         </UsuarioProvider>
       </Switch>
     </Router>

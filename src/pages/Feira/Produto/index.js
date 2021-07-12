@@ -1,10 +1,9 @@
 import { Container } from './styles';
-import Card from '@material-ui/core/Card';
 import { memo, useContext } from 'react';
 import { CarrinhoContext } from 'common/contexts/Carrinho';
 
 
-function Produtor({ nome, foto, id }) {
+function Produto({ nome, foto, id }) {
   const { carrinho, setCarrinho } = useContext(CarrinhoContext);
 
   function adicionarProdutor(produtor) {
@@ -17,7 +16,6 @@ function Produtor({ nome, foto, id }) {
   }
 
   return (
-    <Card>
       <Container
         onClick={() => adicionarProdutor({
           nome,
@@ -25,13 +23,15 @@ function Produtor({ nome, foto, id }) {
           foto
         })}
       >
-        <img src={foto} alt={`foto de ${nome}`} />
+        <img
+          src={foto}
+          alt={`foto de ${nome}`}
+        />
         <p>
           {nome}
         </p>
       </Container>
-    </Card>
   )
 }
 
-export default memo(Produtor)
+export default memo(Produto)

@@ -4,9 +4,9 @@
     "paths": {
       "components": ["components"],
       "pages": ["pages"],
-      "assets": ["assets"],
       "common": ["common"]
     }
   },
+  "exclude": ["node_modules"],
   "include": ["src"]
 }

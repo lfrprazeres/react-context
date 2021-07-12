@@ -22,7 +22,7 @@ function Login() {
         variant="contained"
         color="primary"
         disabled={'nome'.length < 4}
-        onClick={() => history.push('/produtores')}
+        onClick={() => history.push('/feira')}
       >
         Avançar
       </Button>

@@ -1,25 +1,25 @@
 import { Container, Header, Lista } from './styles';
-import produtores from './produtores.json';
-import Produtor from './Produtor';
+import feira from './feira.json';
+import Produto from './Produto';
 import { useContext } from 'react';
 import { UsuarioContext } from 'common/contexts/Usuario';
 
 
-function Produtores() {
+function Feira() {
 
   const { nome } = useContext(UsuarioContext);
   return (
     <Container>
       <Header>
         <h2> Olá {nome}!</h2>
-        <p>Encontre os melhores produtores</p>
+        <p>Encontre os melhores produtos orgânicos!</p>
       </Header>
       <Lista>
         <h2>
-          Produtores:
+          Produtos:
         </h2>
-          {produtores.map(produtor => (
-            <Produtor
+          {feira.map(produtor => (
+            <Produto
               {...produtor}
               key={produtor.id}
             />
@@ -29,4 +29,4 @@ function Produtores() {
   )
 }
 
-export default Produtores;
+export default Feira;

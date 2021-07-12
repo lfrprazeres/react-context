@@ -13,10 +13,12 @@ export const Container = styled.main`
 
 export const Header = styled.header`
   > h2 {
-    color: ${titleGray}
+    color: ${titleGray};
+    font-size: 32px;
   }
   > p {
-    color: #A3A3A3
+    color: #A3A3A3;
+    font-size: 26px;
   }
 `;
 
@@ -26,6 +28,7 @@ export const Lista = styled.section`
   gap: 10px;
   padding: 20px 0;
   > h2 {
-    color: ${titleGray}
+    color: ${titleGray};
+    font-size: 32px;
   }
 `;

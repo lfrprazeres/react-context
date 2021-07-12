@@ -1,0 +1,27 @@
+[
+  {
+    "nome": "Tomate",
+    "foto": "assets/tomate.png",
+    "id": "1"
+  },
+  {
+    "nome": "Brócolis",
+    "foto": "assets/brocolis.png",
+    "id": "2"
+  },
+  {
+    "nome": "Batata",
+    "foto": "assets/batata.png",
+    "id": "3"
+  },
+  {
+    "nome": "Pepino",
+    "foto": "assets/pepino.png",
+    "id": "4"
+  },
+  {
+    "nome": "Abóbora",
+    "foto": "assets/abobora.png",
+    "id": "5"
+  }
+]
