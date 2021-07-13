@@ -1,14 +1,16 @@
 import { Container, Header, Lista } from './styles';
 import feira from './feira.json';
-import Produto from './Produto';
+import Produto from 'components/Produto';
 import { useContext } from 'react';
 import { UsuarioContext } from 'common/contexts/Usuario';
+import NavBar from './NavBar';
 
 
 function Feira() {
   const { nome } = useContext(UsuarioContext);
   return (
     <Container>
+      <NavBar />
       <Header>
         <h2> Olá {nome}!</h2>
         <p>Encontre os melhores produtos orgânicos!</p>
@@ -17,10 +19,10 @@ function Feira() {
         <h2>
           Produtos:
         </h2>
-          {feira.map(produtor => (
+          {feira.map(produto => (
             <Produto
-              {...produtor}
-              key={produtor.id}
+              {...produto}
+              key={produto.id}
             />
           ))}
       </Lista>

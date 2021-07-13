@@ -70,12 +70,7 @@ export function useCarrinhoContext() {
   }
 
   useEffect(() => {
-    let novaQuantidade;
-    if(carrinho.length > 1) {
-      novaQuantidade = carrinho.reduce((contador, novoItem) => (contador.quantidade || contador) + novoItem.quantidade)
-    } else {
-      novaQuantidade = carrinho[0]?.quantidade || 0
-    }
+    let novaQuantidade = carrinho.reduce((contador, novoItem) => contador + novoItem.quantidade, 0)
     setQuantidadeCarrinho(novaQuantidade);
   },[carrinho, setQuantidadeCarrinho])
 

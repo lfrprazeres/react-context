@@ -3,7 +3,7 @@ import Login from 'pages/Login';
 import Feira from 'pages/Feira';
 import UsuarioProvider from 'common/contexts/Usuario';
 import CarrinhoProvider from 'common/contexts/Carrinho';
-import NavBar from 'pages/Feira/NavBar';
+import Carrinho from 'pages/Carrinho';
 
 export default function Routes() {
   return (
@@ -13,12 +13,14 @@ export default function Routes() {
           <Route exact path="/">
             <Login />
           </Route>
-            <CarrinhoProvider>
-              <Route path="/feira">
-                  <NavBar />
-                  <Feira />
-              </Route>
-            </CarrinhoProvider>
+          <CarrinhoProvider>
+            <Route path="/feira">
+              <Feira />
+            </Route>
+            <Route path="/carrinho">
+              <Carrinho />
+            </Route>
+          </CarrinhoProvider>
         </UsuarioProvider>
       </Switch>
     </Router>

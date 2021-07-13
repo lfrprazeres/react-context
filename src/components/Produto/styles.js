@@ -6,6 +6,7 @@ export const Container = styled(Card)`
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  width: 100%;
   div {
     align-items: center;
     display: flex;
