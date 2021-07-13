@@ -2,12 +2,18 @@ import styled from 'styled-components';
 import Card from '@material-ui/core/Card';
 
 export const Container = styled(Card)`
+  align-items: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 20px;
-  p {
+  div {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    p {
     font-size: 22px;
     font-weight: bold;
     padding: 5px 0 0 5px;
+  }
   }
 `;

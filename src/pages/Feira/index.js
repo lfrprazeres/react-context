@@ -6,7 +6,6 @@ import { UsuarioContext } from 'common/contexts/Usuario';
 
 
 function Feira() {
-
   const { nome } = useContext(UsuarioContext);
   return (
     <Container>

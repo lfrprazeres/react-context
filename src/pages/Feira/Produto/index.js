@@ -1,35 +1,44 @@
 import { Container } from './styles';
-import { memo, useContext } from 'react';
-import { CarrinhoContext } from 'common/contexts/Carrinho';
+import { memo } from 'react';
+import { IconButton } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import { useCarrinhoContext } from 'common/contexts/Carrinho';
 
 
 function Produto({ nome, foto, id }) {
-  const { carrinho, setCarrinho } = useContext(CarrinhoContext);
-
-  function adicionarProdutor(produtor) {
-    const temProdutor = carrinho.some(listaProdutor => listaProdutor.id === produtor.id);
-    if(!temProdutor) {
-      setCarrinho(carrinhoAnterior => ([...carrinhoAnterior, produtor]));
-    } else {
-      setCarrinho(carrinhoAnterior => carrinhoAnterior.filter(produtorNoCarrinho => produtorNoCarrinho.id !== produtor.id));
-    }
-  }
-
+  const { carrinho, adicionarProduto, removerProduto } = useCarrinhoContext();
+  const itemNoCarrinho = carrinho.find(item => item.id === id);
   return (
-      <Container
-        onClick={() => adicionarProdutor({
-          nome,
-          id,
-          foto
-        })}
-      >
-        <img
-          src={foto}
-          alt={`foto de ${nome}`}
-        />
-        <p>
-          {nome}
-        </p>
+      <Container>
+        <div>
+          <img
+            src={foto}
+            alt={`foto de ${nome}`}
+          />
+          <p>
+            {nome}
+          </p>
+        </div>
+        <div>
+          <IconButton
+            onClick={() => removerProduto(id)}
+            disabled={!itemNoCarrinho || itemNoCarrinho.quantidade === 0}
+            color="secondary"
+          >
+            <RemoveIcon />
+          </IconButton>
+          {itemNoCarrinho?.quantidade || 0}
+          <IconButton
+            onClick={() => adicionarProduto({
+              nome,
+              foto,
+              id
+            })}
+          >
+            <AddIcon color="primary" />
+          </IconButton>
+        </div>
       </Container>
   )
 }
