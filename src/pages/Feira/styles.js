@@ -12,9 +12,20 @@ export const Container = styled.main`
 `;
 
 export const Header = styled.header`
-  > h2 {
-    color: ${titleGray};
-    font-size: 32px;
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    > h2, > h3 {
+      color: ${titleGray};
+    }
+    h2 {
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 26px;
+    }
   }
   > p {
     color: #A3A3A3;
@@ -30,5 +41,6 @@ export const Lista = styled.section`
   > h2 {
     color: ${titleGray};
     font-size: 32px;
+    margin-top: 20px;
   }
 `;

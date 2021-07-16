@@ -28,3 +28,20 @@ export const Voltar = styled(IconButton).attrs({
   position: absolute;
   top: 15px;
 `
+
+export const TotalContainer = styled.section`
+  margin-top: 20px;
+  > div {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    h2 {
+      color: ${titleGray};
+      font-size: 32px;
+    }
+    span {
+      font-size: 30px;
+    }
+  }
+`

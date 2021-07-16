@@ -6,7 +6,13 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import { useCarrinhoContext } from 'common/contexts/Carrinho';
 
 
-function Produto({ nome, foto, id }) {
+function Produto({
+  nome,
+  foto,
+  id,
+  valor,
+  unidade
+}) {
   const { carrinho, adicionarProduto, removerProduto } = useCarrinhoContext();
   const itemNoCarrinho = carrinho.find(item => item.id === id);
   return (
@@ -17,7 +23,7 @@ function Produto({ nome, foto, id }) {
             alt={`foto de ${nome}`}
           />
           <p>
-            {nome}
+            {nome} - R$ {valor?.toFixed(2)} <span>Kg</span>
           </p>
         </div>
         <div>
@@ -33,7 +39,9 @@ function Produto({ nome, foto, id }) {
             onClick={() => adicionarProduto({
               nome,
               foto,
-              id
+              id,
+              valor,
+              unidade
             })}
           >
             <AddIcon color="primary" />

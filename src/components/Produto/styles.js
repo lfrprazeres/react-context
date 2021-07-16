@@ -12,9 +12,12 @@ export const Container = styled(Card)`
     display: flex;
     gap: 20px;
     p {
-    font-size: 22px;
-    font-weight: bold;
-    padding: 5px 0 0 5px;
-  }
+      font-size: 22px;
+      font-weight: bold;
+      padding: 5px 0 0 5px;
+    }
+    span {
+      font-size: 16px;
+    }
   }
 `;

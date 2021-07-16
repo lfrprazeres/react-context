@@ -2,18 +2,22 @@ import { Button, Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { useCarrinhoContext } from 'common/contexts/Carrinho';
 import Produto from 'components/Produto';
-import { useState } from 'react';
-import { Container, Voltar } from './styles';
+import { useContext, useState } from 'react';
+import { Container, Voltar, TotalContainer } from './styles';
 import { useHistory } from 'react-router-dom';
+import { UsuarioContext } from 'common/contexts/Usuario';
 
 function Carrinho() {
   const { 
     carrinho,
     quantidadeCarrinho,
-    setCarrinho
+    comprar,
+    valorTotal = 0
   } = useCarrinhoContext();
+  const { saldo = 0 } = useContext(UsuarioContext);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const history = useHistory();
+  const total = (saldo - valorTotal);
   return (
     <Container>
       <Voltar onClick={history.goBack} />
@@ -26,12 +30,26 @@ function Carrinho() {
           key={produto.id}
         />
       ))}
+      <TotalContainer>
+          <div>
+            <h2>Total no Carrinho: </h2>
+            <span>R$ {valorTotal.toFixed(2)}</span>
+          </div>
+          <div>
+            <h2> Saldo: </h2>
+            <span> R$ {saldo.toFixed(2)} </span>
+          </div>
+          <div>
+            <h2> Total: </h2>
+            <span> R$ {total.toFixed(2)} </span>
+          </div>
+        </TotalContainer>
       <Button
         onClick={() => {
-          setCarrinho([]);
+          comprar();
           setOpenSnackbar(true);
         }}
-        disabled={quantidadeCarrinho === 0}
+        disabled={quantidadeCarrinho === 0 || total < 0}
         color="primary"
         variant="contained"
       >

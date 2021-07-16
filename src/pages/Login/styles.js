@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 
 export const Container = styled.div`
   display: flex;
@@ -13,9 +13,10 @@ export const Container = styled.div`
 `;
 
 export const Titulo = styled.h2`
+  margin-bottom: 20px;
   margin-top: 50px;
 `;
 
-export const InputNome = styled(TextField)`
+export const InputContainer = styled(FormControl)`
   margin-bottom: 30px;
-`;
+`

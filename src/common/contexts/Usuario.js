@@ -4,12 +4,15 @@ export const UsuarioContext = createContext();
 
 export default function UsuarioProvider({ children }) {
   const [nome, setNome] = useState('');
+  const [saldo, setSaldo] = useState();
 
   return (
     <UsuarioContext.Provider
       value={{
         nome,
-        setNome
+        setNome,
+        saldo,
+        setSaldo
       }}
     >
       {children}
