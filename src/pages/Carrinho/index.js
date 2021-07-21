@@ -2,7 +2,7 @@ import { Button, Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { useCarrinhoContext } from 'common/contexts/Carrinho';
 import Produto from 'components/Produto';
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { Container, Voltar, TotalContainer } from './styles';
 import { useHistory } from 'react-router-dom';
 import { UsuarioContext } from 'common/contexts/Usuario';
@@ -17,7 +17,7 @@ function Carrinho() {
   const { saldo = 0 } = useContext(UsuarioContext);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const history = useHistory();
-  const total = (saldo - valorTotal);
+  const total = useMemo(() => saldo - valorTotal, [saldo, valorTotal]);
   return (
     <Container>
       <Voltar onClick={history.goBack} />
@@ -40,7 +40,7 @@ function Carrinho() {
             <span> R$ {saldo.toFixed(2)} </span>
           </div>
           <div>
-            <h2> Total: </h2>
+            <h2> Saldo Total: </h2>
             <span> R$ {total.toFixed(2)} </span>
           </div>
         </TotalContainer>

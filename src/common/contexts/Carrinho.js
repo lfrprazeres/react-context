@@ -71,7 +71,7 @@ export function useCarrinhoContext() {
 
   function comprar() {
     setCarrinho([]);
-    setSaldo((saldo - valorTotal));
+    setSaldo(saldo - valorTotal);
   }
 
   useEffect(() => {
