@@ -1,4 +1,4 @@
-import { IconButton } from '@material-ui/core';
+import { FormControl, IconButton } from '@material-ui/core';
 import styled from 'styled-components';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 const titleGray = '#464646';
@@ -44,4 +44,8 @@ export const TotalContainer = styled.section`
       font-size: 30px;
     }
   }
+`
+
+export const PagamentoContainer = styled(FormControl)`
+  width: 100%;
 `
