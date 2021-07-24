@@ -82,7 +82,8 @@ export function useCarrinhoContext() {
       novoTotal: contador.novoTotal + (novoItem.valor * novoItem.quantidade)
     }), { novaQuantidade: 0, novoTotal: 0 });
     setQuantidadeCarrinho(novaQuantidade);
-    setValorTotal(novoTotal * formaPagamento.juros);
+    const juros = formaPagamento?.juros || 0
+    setValorTotal(novoTotal * juros);
   },[carrinho, formaPagamento, setQuantidadeCarrinho, setValorTotal])
 
   return {
