@@ -40,7 +40,7 @@ export function useCarrinhoContext() {
     setSaldo
   } = useContext(UsuarioContext);
 
-  const { formaPagamento } = usePagamento;
+  const { formaPagamento } = usePagamento();
 
   const mudarQuantidade = (id, quantidade) => carrinho.map(item => {
     if (item.id === id) item.quantidade += quantidade;
@@ -82,8 +82,7 @@ export function useCarrinhoContext() {
       novoTotal: contador.novoTotal + (novoItem.valor * novoItem.quantidade)
     }), { novaQuantidade: 0, novoTotal: 0 });
     setQuantidadeCarrinho(novaQuantidade);
-    const juros = formaPagamento?.juros || 0
-    setValorTotal(novoTotal * juros);
+    setValorTotal(novoTotal * formaPagamento.juros);
   },[carrinho, formaPagamento, setQuantidadeCarrinho, setValorTotal])
 
   return {
