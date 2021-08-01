@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 
 const PagamentoContext = createContext();
+PagamentoContext.displayName = "Pagamento"
 
 export function PagamentoProvider({ children }) {
   const tiposPagamento = [{

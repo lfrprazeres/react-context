@@ -31,7 +31,6 @@ function Login() {
           type="text"
           value={nome}
           onChange={(event) => setNome(event.target.value)}
-          startAdornment
         />
       </InputContainer>
       <InputContainer>

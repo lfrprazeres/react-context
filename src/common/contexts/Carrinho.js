@@ -3,12 +3,12 @@ import { usePagamento } from './Pagamento';
 import { UsuarioContext } from './Usuario';
 
 const CarrinhoContext = createContext();
+CarrinhoContext.displayName = "Carrinho"
 
 export default function CarrinhoProvider({ children }) {
   const [carrinho, setCarrinho] = useState([]);
   const [quantidadeCarrinho, setQuantidadeCarrinho] = useState(0);
   const [valorTotal, setValorTotal] = useState(0);
-  
   return (
     <CarrinhoContext.Provider
       value={{
