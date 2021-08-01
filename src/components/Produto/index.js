@@ -5,12 +5,6 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { useCarrinhoContext } from 'common/contexts/Carrinho';
 import { UsuarioContext } from 'common/contexts/Usuario';
-import abobora from 'assets/abobora.png';
-import tomate from 'assets/tomate.png';
-import brocolis from 'assets/brocolis.png';
-import batata from 'assets/batata.png';
-import pepino from 'assets/pepino.png';
-
 
 function Produto({
   nome,
@@ -22,27 +16,11 @@ function Produto({
   const { carrinho, adicionarProduto, removerProduto, valorTotal } = useCarrinhoContext();
   const { saldo } = useContext(UsuarioContext);
   const itemNoCarrinho = carrinho.find(item => item.id === id);
-  const fotos = [{
-    nome: "abobora",
-    imagem: abobora
-  }, {
-    nome: "tomate",
-    imagem: tomate
-  }, {
-    nome: "brocolis",
-    imagem: brocolis
-  }, {
-    nome: "batata",
-    imagem: batata
-  }, {
-    nome: "pepino",
-    imagem: pepino
-  }];
   return (
       <Container>
         <div>
           <img
-            src={fotos.find(imagem => imagem.nome === foto).imagem}
+            src={`/assets/${foto}.png`}
             alt={`foto de ${nome}`}
           />
           <p>
